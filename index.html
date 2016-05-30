@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="../initializer/sw.js"></script>
+
 <link rel="manifest" href="manifest.json">
 <script src="../initializer/js/retrieve.js"></script>
+<script> 
+    window.addEventListener('load', function() {
+      var outputElement = document.getElementById('output');
+      navigator.serviceWorker.register('/initializer/sw.js', { scope: './initializer' })
+        .then(function(r) {
+          console.log('registered service worker');
+        })
+        .catch(function(whut) {
+          console.error('uh oh... ');
+          console.error(whut);
+        });
+       
+      window.addEventListener('beforeinstallprompt', function(e) {
+        outputElement.textContent = 'beforeinstallprompt Event fired';
+      });
+    });
+    </script>
   <meta charset="UTF-8">
   <title>Blanket Coffee</title>
 </head>
