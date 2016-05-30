@@ -7,7 +7,7 @@
 <script> 
     window.addEventListener('load', function() {
       var outputElement = document.getElementById('output');
-      navigator.serviceWorker.register('/initializer/sw.js', { scope: './initializer' })
+      navigator.serviceWorker.register('/initializer/sw.js', { scope: '/initializer/' })
         .then(function(r) {
           console.log('registered service worker');
         })
