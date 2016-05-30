@@ -21,3 +21,7 @@ var Fetch = function() {
             console.log('Request failed', error)
         });
 }
+
+document.addEventListener('event', function(e) {
+    
+});
